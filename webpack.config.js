@@ -5,29 +5,29 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: main.js
+    filename: 'main.js'
   },
   resolve: {
     extensions: ['.js']
   },
-  modules: {
+  module: {
     rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        user: {
+        use: {
           loader: 'babel-loader'
         }
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin([
+    new HtmlWebpackPlugin(
       {
         inject: true,
         template: './public/index.html',
         filename: './index.html'
       }
-    ])
+    )
   ]
 }
